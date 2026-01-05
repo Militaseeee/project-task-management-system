@@ -24,6 +24,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll() // Login y registro públicos
                         .requestMatchers("/swagger-ui/**", "/v3/api-docs/**").permitAll() // Swagger público
+                        .requestMatchers("/error").permitAll()
                         .anyRequest().authenticated() // Todo lo demás requiere JWT
                 )
                 .sessionManagement(session -> session

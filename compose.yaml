@@ -21,7 +21,7 @@ services:
 
   project-task-management-system:
     build:
-      context: ./project-task-management-system
+      context: .
       dockerfile: Dockerfile
     container_name: project-task-management-system-app
     ports:
