@@ -1,4 +1,4 @@
-package com.ProjectTask_cav.project_task_management_system.domain.port.in;
+package com.ProjectTask_cav.project_task_management_system.domain.port.in.project;
 
 import java.util.UUID;
 

@@ -2,7 +2,7 @@ package com.ProjectTask_cav.project_task_management_system.application.usecase.t
 
 import com.ProjectTask_cav.project_task_management_system.domain.model.Project;
 import com.ProjectTask_cav.project_task_management_system.domain.model.Task;
-import com.ProjectTask_cav.project_task_management_system.domain.port.in.CreateTaskUseCase;
+import com.ProjectTask_cav.project_task_management_system.domain.port.in.task.CreateTaskUseCase;
 import com.ProjectTask_cav.project_task_management_system.domain.port.out.repository.ProjectRepositoryPort;
 import com.ProjectTask_cav.project_task_management_system.domain.port.out.repository.TaskRepositoryPort;
 import com.ProjectTask_cav.project_task_management_system.domain.port.out.security.CurrentUserPort;
