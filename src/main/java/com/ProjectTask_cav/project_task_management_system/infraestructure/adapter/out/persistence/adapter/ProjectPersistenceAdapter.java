@@ -31,7 +31,8 @@ public class ProjectPersistenceAdapter implements ProjectRepositoryPort {
 
     @Override
     public Optional<Project> findById(UUID id) {
-        return jpaRepository.findById(id).map(mapper::toDomain);
+//        return jpaRepository.findById(id).map(mapper::toDomain);
+        return jpaRepository.findByIdAndDeletedFalse(id).map(mapper::toDomain);
     }
 
     @Override
@@ -44,7 +45,11 @@ public class ProjectPersistenceAdapter implements ProjectRepositoryPort {
 
     @Override
     public List<Project> findAllActive() {
+//        return jpaRepository.findAll().stream()
+//                .map(mapper::toDomain)
+//                .collect(Collectors.toList());
         return jpaRepository.findAll().stream()
+                .filter(entity -> !entity.isDeleted())
                 .map(mapper::toDomain)
                 .collect(Collectors.toList());
     }

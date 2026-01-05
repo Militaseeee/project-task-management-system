@@ -8,8 +8,10 @@ import com.ProjectTask_cav.project_task_management_system.infraestructure.adapte
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 
+import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
+import java.util.stream.Collectors;
 
 @Component
 @RequiredArgsConstructor
@@ -29,7 +31,15 @@ public class TaskPersistenceAdapter implements TaskRepositoryPort {
 
     @Override
     public Optional<Task> findById(UUID id) {
-        return jpaRepository.findById(id).map(mapper::toDomain);
+//        return jpaRepository.findById(id).map(mapper::toDomain);
+        return jpaRepository.findByIdAndDeletedFalse(id).map(mapper::toDomain);
+    }
+
+    @Override
+    public List<Task> findByProjectId(UUID projectId) {
+        return jpaRepository.findByProjectIdAndDeletedFalse(projectId).stream()
+                .map(mapper::toDomain)
+                .collect(Collectors.toList());
     }
 
 }
