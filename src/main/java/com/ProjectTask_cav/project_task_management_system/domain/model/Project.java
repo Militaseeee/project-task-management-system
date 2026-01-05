@@ -1,5 +1,6 @@
 package com.ProjectTask_cav.project_task_management_system.domain.model;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
@@ -10,7 +11,7 @@ public class Project {
     private String name;
     private ProjectStatus status; // DRAFT, ACTIVE
     private boolean deleted;
-    private List<Task> tasks;
+    private List<Task> tasks = new ArrayList<>();;
 
     public Project() {
     }
